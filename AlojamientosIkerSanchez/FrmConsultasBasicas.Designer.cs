@@ -50,19 +50,21 @@
             // 
             this.btnEstablecimientos.Location = new System.Drawing.Point(234, 376);
             this.btnEstablecimientos.Name = "btnEstablecimientos";
-            this.btnEstablecimientos.Size = new System.Drawing.Size(138, 40);
+            this.btnEstablecimientos.Size = new System.Drawing.Size(138, 50);
             this.btnEstablecimientos.TabIndex = 1;
             this.btnEstablecimientos.Text = "Ver establecimientos";
             this.btnEstablecimientos.UseVisualStyleBackColor = true;
+            this.btnEstablecimientos.Click += new System.EventHandler(this.btnEstablecimientos_Click);
             // 
             // btnUnidadesAlojamiento
             // 
             this.btnUnidadesAlojamiento.Location = new System.Drawing.Point(411, 376);
             this.btnUnidadesAlojamiento.Name = "btnUnidadesAlojamiento";
-            this.btnUnidadesAlojamiento.Size = new System.Drawing.Size(138, 40);
+            this.btnUnidadesAlojamiento.Size = new System.Drawing.Size(138, 50);
             this.btnUnidadesAlojamiento.TabIndex = 2;
             this.btnUnidadesAlojamiento.Text = "Ver unidades de alojamiento";
             this.btnUnidadesAlojamiento.UseVisualStyleBackColor = true;
+            this.btnUnidadesAlojamiento.Click += new System.EventHandler(this.btnUnidadesAlojamiento_Click);
             // 
             // dgvConsultas
             // 

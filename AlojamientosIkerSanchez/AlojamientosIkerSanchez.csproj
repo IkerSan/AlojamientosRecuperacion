@@ -87,6 +87,9 @@
     <EmbeddedResource Include="FrmConsultasBasicas.resx">
       <DependentUpon>FrmConsultasBasicas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallePago.resx">
+      <DependentUpon>FrmDetallePago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleReserva.resx">
       <DependentUpon>FrmDetalleReserva.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +123,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{3c3118e3-cef5-4de6-bb49-49d26a8b3497}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{5cea6b58-24f2-47fa-87ab-772bd999406d}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

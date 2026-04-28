@@ -99,9 +99,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(351, 301);
+            this.button1.Location = new System.Drawing.Point(333, 164);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(106, 52);
             this.button1.TabIndex = 1;
             this.button1.Text = "Cerrar";
             this.button1.UseVisualStyleBackColor = true;
