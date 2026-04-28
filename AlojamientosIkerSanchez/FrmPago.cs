@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AlojamientosIkerSanchez
 {
-    public partial class Form1 : Form
+    public partial class FrmPago : Form
     {
-        public Form1()
+        public FrmPago()
         {
             InitializeComponent();
         }
