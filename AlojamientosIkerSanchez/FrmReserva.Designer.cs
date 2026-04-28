@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvReservas = new System.Windows.Forms.DataGridView();
             this.btnNuevaReserva = new System.Windows.Forms.Button();
             this.btnEditarReserva = new System.Windows.Forms.Button();
             this.btnEliminarReserva = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvReservas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(113, 116);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(637, 290);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReservas.Location = new System.Drawing.Point(113, 116);
+            this.dgvReservas.Name = "dgvReservas";
+            this.dgvReservas.RowHeadersWidth = 51;
+            this.dgvReservas.RowTemplate.Height = 24;
+            this.dgvReservas.Size = new System.Drawing.Size(637, 290);
+            this.dgvReservas.TabIndex = 0;
             // 
             // btnNuevaReserva
             // 
@@ -111,10 +111,11 @@
             this.Controls.Add(this.btnEliminarReserva);
             this.Controls.Add(this.btnEditarReserva);
             this.Controls.Add(this.btnNuevaReserva);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvReservas);
             this.Name = "FrmReserva";
             this.Text = "FrmGestionReservas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmReserva_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,7 +123,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvReservas;
         private System.Windows.Forms.Button btnNuevaReserva;
         private System.Windows.Forms.Button btnEditarReserva;
         private System.Windows.Forms.Button btnEliminarReserva;

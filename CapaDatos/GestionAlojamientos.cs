@@ -128,9 +128,81 @@ namespace CapaDatos
             return unidadesAlojamiento;
         }
 
+        public List<Reserva> ObtenerReservas()
+        {
+            List<Reserva> reservas = new List<Reserva>();
+            string consulta = "SELECT * FROM RESERVAS";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                reservas.Add(new Reserva(
+                                    reader.GetInt32(0),
+                                    reader.GetInt32(1),
+                                    reader.GetInt32(2),
+                                    reader.GetInt32(3),
+                                    reader.IsDBNull(4) ? default(DateTime) : reader.GetDateTime(4),
+                                    reader.GetDateTime(5),
+                                    reader.GetDateTime(6),
+                                    reader.GetInt32(7),
+                                    reader.IsDBNull(8) ? null : reader.GetString(8),       
+                                    reader.IsDBNull(9) ? (float?)null : (float)reader.GetDouble(9),
+                                    (float)reader.GetDouble(10)                            
+                                ));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                }
+            }
 
+            return reservas;
+        }
 
+        public List<Pago> ObtenerPagos()
+        {
+            List<Pago> pagos = new List<Pago>();
+            string consulta = "SELECT * FROM PAGOS";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                pagos.Add(new Pago(
+                                    reader.GetInt32(0),
+                                    reader.GetInt32(1),
+                                    (float)reader.GetDouble(2),
+                                    reader.IsDBNull(3) ? default(DateTime) : reader.GetDateTime(3),
+                                    reader.GetString(4)
+                                ));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                }
+            }
 
+            return pagos;
+        }
 
 
     }

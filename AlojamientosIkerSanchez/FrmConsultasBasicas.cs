@@ -87,5 +87,10 @@ namespace AlojamientosIkerSanchez
                 dgvConsultas.DataSource = unidadesAlojamiento;
             }
         }
+
+        private void FrmConsultasBasicas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

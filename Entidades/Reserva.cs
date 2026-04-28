@@ -12,7 +12,7 @@ namespace Entidades
         public int IdCliente { get; set; }
         public int IdEstablecimiento { get; set; }
         public int NumeroUnidad { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaCreacion { get; set; }
         public DateTime FechaEntrada { get; set; }
         public DateTime FechaSalida { get; set; }
         public int NumeroPersonas { get; set; }

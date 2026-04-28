@@ -98,6 +98,7 @@
             this.Controls.Add(this.btnClientes);
             this.Name = "FrmConsultasBasicas";
             this.Text = "FrmConsultasBasicas";
+            this.Load += new System.EventHandler(this.FrmConsultasBasicas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).EndInit();
             this.ResumeLayout(false);
 
