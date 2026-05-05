@@ -49,6 +49,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +81,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(316, 361);
+            this.button1.Location = new System.Drawing.Point(231, 364);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 36);
             this.button1.TabIndex = 6;
@@ -229,11 +230,22 @@
             this.comboBox4.Size = new System.Drawing.Size(121, 24);
             this.comboBox4.TabIndex = 23;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(413, 362);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(93, 40);
+            this.btnVolver.TabIndex = 24;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // FrmDetalleReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox3);
@@ -257,6 +269,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmDetalleReserva";
             this.Text = "FrmDetalleReserva";
+            this.Load += new System.EventHandler(this.FrmDetalleReserva_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,5 +298,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

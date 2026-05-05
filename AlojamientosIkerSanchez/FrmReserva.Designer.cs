@@ -1,4 +1,4 @@
-﻿namespace AlojamientosIkerSanchez
+namespace AlojamientosIkerSanchez
 {
     partial class FrmReserva
     {
@@ -47,6 +47,7 @@
             this.dgvReservas.RowTemplate.Height = 24;
             this.dgvReservas.Size = new System.Drawing.Size(637, 290);
             this.dgvReservas.TabIndex = 0;
+            this.dgvReservas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservas_CellClick);
             // 
             // btnNuevaReserva
             // 
@@ -74,6 +75,7 @@
             this.btnEliminarReserva.TabIndex = 3;
             this.btnEliminarReserva.Text = "Eliminar seleccionada";
             this.btnEliminarReserva.UseVisualStyleBackColor = true;
+            this.btnEliminarReserva.Click += new System.EventHandler(this.btnEliminarReserva_Click);
             // 
             // textBox1
             // 
@@ -81,6 +83,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -99,6 +102,7 @@
             this.btnVolver.TabIndex = 6;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // FrmReserva
             // 

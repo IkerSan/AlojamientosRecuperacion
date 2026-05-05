@@ -204,6 +204,53 @@ namespace CapaDatos
             return pagos;
         }
 
+        public bool EliminarReserva(int idReserva)
+        {
+            string consulta = "DELETE FROM RESERVAS WHERE ID_RESERVA = @idReserva";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@idReserva", idReserva);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
+
+        public bool EliminarPago(int idPago)
+        {
+            string consulta = "DELETE FROM PAGOS WHERE ID_PAGO = @idPago";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@idPago", idPago);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
+
+
 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace AlojamientosIkerSanchez
+namespace AlojamientosIkerSanchez
 {
     partial class FrmPago
     {
@@ -33,7 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNuevaReserva = new System.Windows.Forms.Button();
             this.btnEditarReserva = new System.Windows.Forms.Button();
-            this.btnEliminarReserva = new System.Windows.Forms.Button();
+            this.btnEliminarPago = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +47,7 @@
             this.dgvPagos.RowTemplate.Height = 24;
             this.dgvPagos.Size = new System.Drawing.Size(637, 290);
             this.dgvPagos.TabIndex = 1;
+            this.dgvPagos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagos_CellClick);
             // 
             // label1
             // 
@@ -63,6 +64,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnNuevaReserva
             // 
@@ -82,14 +84,15 @@
             this.btnEditarReserva.Text = "Editar seleccionado";
             this.btnEditarReserva.UseVisualStyleBackColor = true;
             // 
-            // btnEliminarReserva
+            // btnEliminarPago
             // 
-            this.btnEliminarReserva.Location = new System.Drawing.Point(435, 442);
-            this.btnEliminarReserva.Name = "btnEliminarReserva";
-            this.btnEliminarReserva.Size = new System.Drawing.Size(97, 42);
-            this.btnEliminarReserva.TabIndex = 10;
-            this.btnEliminarReserva.Text = "Eliminar seleccionado";
-            this.btnEliminarReserva.UseVisualStyleBackColor = true;
+            this.btnEliminarPago.Location = new System.Drawing.Point(435, 442);
+            this.btnEliminarPago.Name = "btnEliminarPago";
+            this.btnEliminarPago.Size = new System.Drawing.Size(97, 42);
+            this.btnEliminarPago.TabIndex = 10;
+            this.btnEliminarPago.Text = "Eliminar seleccionado";
+            this.btnEliminarPago.UseVisualStyleBackColor = true;
+            this.btnEliminarPago.Click += new System.EventHandler(this.btnEliminarPago_Click);
             // 
             // btnVolver
             // 
@@ -99,6 +102,7 @@
             this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // FrmPago
             // 
@@ -106,7 +110,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 522);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.btnEliminarReserva);
+            this.Controls.Add(this.btnEliminarPago);
             this.Controls.Add(this.btnEditarReserva);
             this.Controls.Add(this.btnNuevaReserva);
             this.Controls.Add(this.textBox1);
@@ -128,7 +132,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnNuevaReserva;
         private System.Windows.Forms.Button btnEditarReserva;
-        private System.Windows.Forms.Button btnEliminarReserva;
+        private System.Windows.Forms.Button btnEliminarPago;
         private System.Windows.Forms.Button btnVolver;
     }
 }

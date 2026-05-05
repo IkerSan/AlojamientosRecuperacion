@@ -39,6 +39,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label11
@@ -61,7 +62,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(328, 367);
+            this.button1.Location = new System.Drawing.Point(250, 367);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 36);
             this.button1.TabIndex = 27;
@@ -133,11 +134,22 @@
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 46;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(427, 363);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(93, 40);
+            this.btnVolver.TabIndex = 47;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // FrmDetallePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label11);
@@ -151,6 +163,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmDetallePago";
             this.Text = "FrmDetallePago";
+            this.Load += new System.EventHandler(this.FrmDetallePago_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +181,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
