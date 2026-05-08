@@ -32,23 +32,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpEntrada = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpSalida = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtInquilinos = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtFianza = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.lblImporte = new System.Windows.Forms.Label();
+            this.cboEstablecimiento = new System.Windows.Forms.ComboBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboNumUnidad = new System.Windows.Forms.ComboBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -87,13 +87,14 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Crear/Actualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // dateTimePicker1
+            // dtpEntrada
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(279, 137);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 7;
+            this.dtpEntrada.Location = new System.Drawing.Point(279, 137);
+            this.dtpEntrada.Name = "dtpEntrada";
+            this.dtpEntrada.Size = new System.Drawing.Size(200, 22);
+            this.dtpEntrada.TabIndex = 7;
             // 
             // label4
             // 
@@ -113,12 +114,12 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Fecha de salida";
             // 
-            // dateTimePicker2
+            // dtpSalida
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(499, 137);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 10;
+            this.dtpSalida.Location = new System.Drawing.Point(499, 137);
+            this.dtpSalida.Name = "dtpSalida";
+            this.dtpSalida.Size = new System.Drawing.Size(200, 22);
+            this.dtpSalida.TabIndex = 10;
             // 
             // label6
             // 
@@ -129,12 +130,12 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Número de inquilinos";
             // 
-            // textBox4
+            // txtInquilinos
             // 
-            this.textBox4.Location = new System.Drawing.Point(217, 207);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 12;
+            this.txtInquilinos.Location = new System.Drawing.Point(217, 207);
+            this.txtInquilinos.Name = "txtInquilinos";
+            this.txtInquilinos.Size = new System.Drawing.Size(100, 22);
+            this.txtInquilinos.TabIndex = 12;
             // 
             // label7
             // 
@@ -145,13 +146,13 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Estado";
             // 
-            // comboBox1
+            // cboEstado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(398, 207);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 14;
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(398, 207);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(121, 24);
+            this.cboEstado.TabIndex = 14;
             // 
             // label8
             // 
@@ -162,12 +163,12 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Fianza";
             // 
-            // textBox5
+            // txtFianza
             // 
-            this.textBox5.Location = new System.Drawing.Point(599, 207);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 16;
+            this.txtFianza.Location = new System.Drawing.Point(599, 207);
+            this.txtFianza.Name = "txtFianza";
+            this.txtFianza.Size = new System.Drawing.Size(100, 22);
+            this.txtFianza.TabIndex = 16;
             // 
             // label9
             // 
@@ -178,40 +179,40 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Importe estimado";
             // 
-            // label10
+            // lblImporte
             // 
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label10.Location = new System.Drawing.Point(342, 255);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 29);
-            this.label10.TabIndex = 18;
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.lblImporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblImporte.Location = new System.Drawing.Point(342, 255);
+            this.lblImporte.Name = "lblImporte";
+            this.lblImporte.Size = new System.Drawing.Size(124, 29);
+            this.lblImporte.TabIndex = 18;
+            this.lblImporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblImporte.Click += new System.EventHandler(this.label10_Click);
             // 
-            // comboBox2
+            // cboEstablecimiento
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(566, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 19;
+            this.cboEstablecimiento.FormattingEnabled = true;
+            this.cboEstablecimiento.Location = new System.Drawing.Point(566, 42);
+            this.cboEstablecimiento.Name = "cboEstablecimiento";
+            this.cboEstablecimiento.Size = new System.Drawing.Size(121, 24);
+            this.cboEstablecimiento.TabIndex = 19;
             // 
-            // label11
+            // lblId
             // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label11.Location = new System.Drawing.Point(105, 41);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 29);
-            this.label11.TabIndex = 20;
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblId.Location = new System.Drawing.Point(105, 41);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(124, 29);
+            this.lblId.TabIndex = 20;
+            this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox3
+            // cboCliente
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(316, 44);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 21;
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(316, 44);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(121, 24);
+            this.cboCliente.TabIndex = 21;
             // 
             // label12
             // 
@@ -222,13 +223,13 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Número de unidad";
             // 
-            // comboBox4
+            // cboNumUnidad
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(108, 139);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 24);
-            this.comboBox4.TabIndex = 23;
+            this.cboNumUnidad.FormattingEnabled = true;
+            this.cboNumUnidad.Location = new System.Drawing.Point(108, 139);
+            this.cboNumUnidad.Name = "cboNumUnidad";
+            this.cboNumUnidad.Size = new System.Drawing.Size(121, 24);
+            this.cboNumUnidad.TabIndex = 23;
             // 
             // btnVolver
             // 
@@ -246,23 +247,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.cboNumUnidad);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cboCliente);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.cboEstablecimiento);
+            this.Controls.Add(this.lblImporte);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtFianza);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtInquilinos);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpSalida);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpEntrada);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -281,23 +282,23 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpEntrada;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpSalida;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtInquilinos;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtFianza;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label lblImporte;
+        private System.Windows.Forms.ComboBox cboEstablecimiento;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.ComboBox cboCliente;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboNumUnidad;
         private System.Windows.Forms.Button btnVolver;
     }
 }

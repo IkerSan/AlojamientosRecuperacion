@@ -86,5 +86,20 @@ namespace AlojamientosIkerSanchez
                 }
             }
         }
+
+        private void btnEditarPago_Click(object sender, EventArgs e)
+        {
+            if (idPagoSeleccionado == null)
+            {
+                MessageBox.Show("Selecciona un pago para editar (la fila completa)");
+                return;
+            }
+            else
+            {
+                FrmDetallePago frmDetallePago = new FrmDetallePago(idPagoSeleccionado.Value);
+                frmDetallePago.Show();
+                this.Close();
+            }
+        }
     }
 }

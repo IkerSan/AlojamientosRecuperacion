@@ -32,7 +32,7 @@ namespace AlojamientosIkerSanchez
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNuevaReserva = new System.Windows.Forms.Button();
-            this.btnEditarReserva = new System.Windows.Forms.Button();
+            this.btnEditarPago = new System.Windows.Forms.Button();
             this.btnEliminarPago = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).BeginInit();
@@ -75,14 +75,15 @@ namespace AlojamientosIkerSanchez
             this.btnNuevaReserva.Text = "Nuevo Pago";
             this.btnNuevaReserva.UseVisualStyleBackColor = true;
             // 
-            // btnEditarReserva
+            // btnEditarPago
             // 
-            this.btnEditarReserva.Location = new System.Drawing.Point(293, 442);
-            this.btnEditarReserva.Name = "btnEditarReserva";
-            this.btnEditarReserva.Size = new System.Drawing.Size(97, 42);
-            this.btnEditarReserva.TabIndex = 9;
-            this.btnEditarReserva.Text = "Editar seleccionado";
-            this.btnEditarReserva.UseVisualStyleBackColor = true;
+            this.btnEditarPago.Location = new System.Drawing.Point(293, 442);
+            this.btnEditarPago.Name = "btnEditarPago";
+            this.btnEditarPago.Size = new System.Drawing.Size(97, 42);
+            this.btnEditarPago.TabIndex = 9;
+            this.btnEditarPago.Text = "Editar seleccionado";
+            this.btnEditarPago.UseVisualStyleBackColor = true;
+            this.btnEditarPago.Click += new System.EventHandler(this.btnEditarPago_Click);
             // 
             // btnEliminarPago
             // 
@@ -111,7 +112,7 @@ namespace AlojamientosIkerSanchez
             this.ClientSize = new System.Drawing.Size(877, 522);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminarPago);
-            this.Controls.Add(this.btnEditarReserva);
+            this.Controls.Add(this.btnEditarPago);
             this.Controls.Add(this.btnNuevaReserva);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -131,7 +132,7 @@ namespace AlojamientosIkerSanchez
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnNuevaReserva;
-        private System.Windows.Forms.Button btnEditarReserva;
+        private System.Windows.Forms.Button btnEditarPago;
         private System.Windows.Forms.Button btnEliminarPago;
         private System.Windows.Forms.Button btnVolver;
     }

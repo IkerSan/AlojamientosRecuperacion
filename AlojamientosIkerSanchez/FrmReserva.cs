@@ -87,5 +87,20 @@ namespace AlojamientosIkerSanchez
                 }
             }
         }
+
+        private void btnEditarReserva_Click(object sender, EventArgs e)
+        {
+            if (idReservaSeleccionada == null)
+            {
+                MessageBox.Show("Selecciona una reserva para editar (la fila completa)");
+                return;
+            }
+            else
+            {
+                FrmDetalleReserva frmDetalleReserva = new FrmDetalleReserva(idReservaSeleccionada.Value);
+                frmDetalleReserva.Show();
+                this.Close();
+            }
+        }
     }
 }

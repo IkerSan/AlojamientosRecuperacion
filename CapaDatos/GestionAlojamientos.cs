@@ -188,8 +188,8 @@ namespace CapaDatos
                                     reader.GetInt32(0),
                                     reader.GetInt32(1),
                                     (float)reader.GetDouble(2),
-                                    reader.IsDBNull(3) ? default(DateTime) : reader.GetDateTime(3),
-                                    reader.GetString(4)
+                                    reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3),
+                                    reader.IsDBNull(4) ? null : reader.GetString(4)
                                 ));
                             }
                         }
@@ -250,7 +250,65 @@ namespace CapaDatos
             }
         }
 
+        public bool EditarReserva(int id, int idCliente, int idEstablecimiento, int numeroUnidad, DateTime? fechaCreacion, DateTime fechaEntrada, DateTime fechaSalida, int numeroPersonas, string estado, float? fianza, float importeEstimado)
+        {
+            string consulta = "UPDATE RESERVAS SET ID_CLIENTE = @idCliente, ID_ESTABLECIMIENTO = @idEstablecimiento, NUMERO_UNIDAD = @numeroUnidad, FECHA_CREACION = @fechaCreacion, FECHA_ENTRADA = @fechaEntrada, FECHA_SALIDA = @fechaSalida, NUMERO_PERSONAS = @numeroPersonas, ESTADO = @estado, FIANZA = @fianza, IMPORTE_ESTIMADO = @importeEstimado WHERE ID_RESERVA = @id";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                        cmd.Parameters.AddWithValue("@idEstablecimiento", idEstablecimiento);
+                        cmd.Parameters.AddWithValue("@numeroUnidad", numeroUnidad);
+                        cmd.Parameters.AddWithValue("@fechaCreacion", (object)fechaCreacion ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@fechaEntrada", fechaEntrada);
+                        cmd.Parameters.AddWithValue("@fechaSalida", fechaSalida);
+                        cmd.Parameters.AddWithValue("@numeroPersonas", numeroPersonas);
+                        cmd.Parameters.AddWithValue("@estado", estado);
+                        cmd.Parameters.AddWithValue("@fianza", (object)fianza ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@importeEstimado", importeEstimado);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
 
+        public bool EditarPago(int id, int idReserva, float importe, DateTime? fechaPago, string metodoPago)
+        {
+            string consulta = "UPDATE PAGOS SET ID_RESERVA = @idReserva, IMPORTE = @importe, FECHA_PAGO = @fechaPago, METODO_PAGO = @metodoPago WHERE ID_PAGO = @id";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@idReserva", idReserva);
+                        cmd.Parameters.AddWithValue("@importe", importe);
+                        cmd.Parameters.AddWithValue("@fechaPago", (object)fechaPago ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@metodoPago", metodoPago);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
 
     }
 }

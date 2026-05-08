@@ -34,7 +34,7 @@ namespace AlojamientosIkerSanchez
 
         private void detallesDeReservaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDetalleReserva detalleReserva = new FrmDetalleReserva();
+            FrmDetalleReserva detalleReserva = new FrmDetalleReserva(null);
             detalleReserva.FormClosed += (s, args) => this.Show();
             detalleReserva.Show();
             this.Hide();
@@ -50,7 +50,7 @@ namespace AlojamientosIkerSanchez
 
         private void detallesDePagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDetallePago detallePago = new FrmDetallePago();
+            FrmDetallePago detallePago = new FrmDetallePago(null);
             detallePago.FormClosed += (s, args) => this.Show();
             detallePago.Show();
             this.Hide();

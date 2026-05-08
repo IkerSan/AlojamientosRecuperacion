@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboMetodopago = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dtpFechaPago = new System.Windows.Forms.DateTimePicker();
+            this.txtImporte = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIdReserva = new System.Windows.Forms.TextBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label11
+            // lblId
             // 
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label11.Location = new System.Drawing.Point(105, 133);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(124, 29);
-            this.label11.TabIndex = 41;
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.lblId.Location = new System.Drawing.Point(105, 133);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(124, 29);
+            this.lblId.TabIndex = 41;
+            this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -68,6 +68,7 @@
             this.button1.TabIndex = 27;
             this.button1.Text = "Crear/Actualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnEditarPago_Click);
             // 
             // label2
             // 
@@ -87,13 +88,13 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Id: ";
             // 
-            // comboBox1
+            // cboMetodopago
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(278, 213);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 45;
+            this.cboMetodopago.FormattingEnabled = true;
+            this.cboMetodopago.Location = new System.Drawing.Point(278, 213);
+            this.cboMetodopago.Name = "cboMetodopago";
+            this.cboMetodopago.Size = new System.Drawing.Size(121, 24);
+            this.cboMetodopago.TabIndex = 45;
             // 
             // label5
             // 
@@ -104,19 +105,19 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Fecha de pago";
             // 
-            // dateTimePicker2
+            // dtpFechaPago
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(482, 140);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker2.TabIndex = 31;
+            this.dtpFechaPago.Location = new System.Drawing.Point(482, 140);
+            this.dtpFechaPago.Name = "dtpFechaPago";
+            this.dtpFechaPago.Size = new System.Drawing.Size(200, 22);
+            this.dtpFechaPago.TabIndex = 31;
             // 
-            // textBox5
+            // txtImporte
             // 
-            this.textBox5.Location = new System.Drawing.Point(482, 215);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 37;
+            this.txtImporte.Location = new System.Drawing.Point(482, 215);
+            this.txtImporte.Name = "txtImporte";
+            this.txtImporte.Size = new System.Drawing.Size(100, 22);
+            this.txtImporte.TabIndex = 37;
             // 
             // label8
             // 
@@ -127,12 +128,12 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Importe";
             // 
-            // textBox1
+            // txtIdReserva
             // 
-            this.textBox1.Location = new System.Drawing.Point(345, 138);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 46;
+            this.txtIdReserva.Location = new System.Drawing.Point(345, 138);
+            this.txtIdReserva.Name = "txtIdReserva";
+            this.txtIdReserva.Size = new System.Drawing.Size(100, 22);
+            this.txtIdReserva.TabIndex = 46;
             // 
             // btnVolver
             // 
@@ -150,13 +151,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtIdReserva);
+            this.Controls.Add(this.cboMetodopago);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.txtImporte);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpFechaPago);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -170,17 +171,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboMetodopago;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DateTimePicker dtpFechaPago;
+        private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIdReserva;
         private System.Windows.Forms.Button btnVolver;
     }
 }

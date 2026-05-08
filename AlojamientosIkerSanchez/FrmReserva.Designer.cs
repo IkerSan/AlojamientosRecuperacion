@@ -66,6 +66,7 @@ namespace AlojamientosIkerSanchez
             this.btnEditarReserva.TabIndex = 2;
             this.btnEditarReserva.Text = "Editar seleccionada";
             this.btnEditarReserva.UseVisualStyleBackColor = true;
+            this.btnEditarReserva.Click += new System.EventHandler(this.btnEditarReserva_Click);
             // 
             // btnEliminarReserva
             // 
