@@ -367,5 +367,30 @@ namespace CapaDatos
                 }
             }
         }
+
+        public bool ActualizarEstadoUnidad(int idEstablecimiento, int numeroUnidad, string estado)
+        {
+            string consulta = "UPDATE UNIDADES_ALOJAMIENTO SET ESTADO = @estado WHERE ID_ESTABLECIMIENTO = @idEstablecimiento AND NUMERO_UNIDAD = @numeroUnidad";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@idEstablecimiento", idEstablecimiento);
+                        cmd.Parameters.AddWithValue("@numeroUnidad", numeroUnidad);
+                        cmd.Parameters.AddWithValue("@estado", estado);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
     }
 }

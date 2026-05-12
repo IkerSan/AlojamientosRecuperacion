@@ -1,4 +1,4 @@
-﻿namespace AlojamientosIkerSanchez
+namespace AlojamientosIkerSanchez
 {
     partial class FrmDetalleReserva
     {
@@ -196,6 +196,7 @@
             this.cboEstablecimiento.Name = "cboEstablecimiento";
             this.cboEstablecimiento.Size = new System.Drawing.Size(121, 24);
             this.cboEstablecimiento.TabIndex = 19;
+            this.cboEstablecimiento.SelectedIndexChanged += new System.EventHandler(this.cboEstablecimiento_SelectedIndexChanged);
             // 
             // lblId
             // 

@@ -54,14 +54,30 @@ namespace AlojamientosIkerSanchez
             cboEstablecimiento.DataSource = gestion.ObtenerEstablecimientos();
             cboEstablecimiento.DisplayMember = "NombreComercial";
 
-            Establecimiento establecimientoSeleccionado = (Establecimiento)cboEstablecimiento.SelectedItem;
-            if (establecimientoSeleccionado != null)
-            {
-                cboNumUnidad.DataSource = gestion.ObtenerUnidadesAlojamiento().Where(u => u.IdEstablecimiento == establecimientoSeleccionado.Id).ToList();
-                cboNumUnidad.DisplayMember = "NombreUnidad";
-            }
+            ActualizarUnidadesAlojamiento();
 
             cboEstado.DataSource = new List<string> { "PENDIENTE", "CONFIRMADA", "CANCELADA", "FINALIZADA" };
+        }
+
+        private void cboEstablecimiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActualizarUnidadesAlojamiento();
+        }
+
+        private void ActualizarUnidadesAlojamiento()
+        {
+            if (cboEstablecimiento.SelectedItem is Establecimiento establecimientoSeleccionado)
+            {
+                var unidades = gestion.ObtenerUnidadesAlojamiento()
+                                      .Where(u => u.IdEstablecimiento == establecimientoSeleccionado.Id && u.Estado == "DISPONIBLE")
+                                      .ToList();
+                cboNumUnidad.DataSource = unidades;
+                cboNumUnidad.DisplayMember = "NombreUnidad";
+            }
+            else
+            {
+                cboNumUnidad.DataSource = null;
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -141,6 +157,9 @@ namespace AlojamientosIkerSanchez
                     importeTotal
                 );
                 
+                // Actualizar estado de la unidad a OCUPADA
+                gestion.ActualizarEstadoUnidad(((Establecimiento)cboEstablecimiento.SelectedItem).Id, ((UnidadAlojamiento)cboNumUnidad.SelectedItem).NumeroUnidad, "OCUPADA");
+                
                 // Obtenemos el ID de la reserva recién creada para usarlo si queremos crear un pago
                 var reservas = gestion.ObtenerReservas();
                 if (reservas != null && reservas.Count > 0)
@@ -166,6 +185,10 @@ namespace AlojamientosIkerSanchez
                 fianza,
                 importeTotal
             );
+            
+                // Actualizar estado de la unidad a OCUPADA
+                gestion.ActualizarEstadoUnidad(((Establecimiento)cboEstablecimiento.SelectedItem).Id, ((UnidadAlojamiento)cboNumUnidad.SelectedItem).NumeroUnidad, "OCUPADA");
+            
                 //ID de la reserva actual
                 idReservaActual = int.Parse(lblId.Text);
                 mensaje = "Reserva actualizada con éxito. Importe total: " + importeTotal.ToString() + "\n\n¿Quieres crear un nuevo pago a partir de esta reserva?";
