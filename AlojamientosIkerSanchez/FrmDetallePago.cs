@@ -83,6 +83,8 @@ namespace AlojamientosIkerSanchez
                     fechaPago: dtpFechaPago.Value,
                     metodoPago: cboMetodopago.SelectedItem.ToString()
                 );
+                MessageBox.Show("Pago creado correctamente.");
+                this.Close();
             }
             else
             {

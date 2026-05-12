@@ -166,7 +166,7 @@ namespace AlojamientosIkerSanchez
                 fianza,
                 importeTotal
             );
-                // Si estamos editando, ya sabemos cuál es el ID de la reserva actual
+                //ID de la reserva actual
                 idReservaActual = int.Parse(lblId.Text);
                 mensaje = "Reserva actualizada con éxito. Importe total: " + importeTotal.ToString() + "\n\n¿Quieres crear un nuevo pago a partir de esta reserva?";
             }
@@ -175,7 +175,7 @@ namespace AlojamientosIkerSanchez
             DialogResult result = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                // Ocultamos la reserva para que el menú principal no salte por encima al cerrarse
+                // Ocultamos la reserva
                 this.Hide(); 
                 // Abrimos el formulario de detalles de pago, pasándole el ID de la reserva
                 FrmDetallePago frmDetallePago = new FrmDetallePago(null, idReservaActual);
@@ -184,7 +184,7 @@ namespace AlojamientosIkerSanchez
             }
             else
             {
-                this.Close(); // Cerramos y volvemos a la ventana anterior
+                this.Close();
             }
         }
     }
