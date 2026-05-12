@@ -1,4 +1,4 @@
-﻿using CapaDatos;
+using CapaDatos;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -61,8 +61,14 @@ namespace AlojamientosIkerSanchez
             {
                 // Obtener el valor de una celda específica (por nombre de columna o índice)
                 var valor = dgvPagos.Rows[e.RowIndex].Cells["Id"].Value;
-
-                idPagoSeleccionado = Convert.ToInt32(valor);
+                if (valor != null && valor != DBNull.Value)
+                {
+                    idPagoSeleccionado = Convert.ToInt32(valor);
+                }
+                else
+                {
+                    idPagoSeleccionado = null;
+                }
             }
         }
 
@@ -97,9 +103,18 @@ namespace AlojamientosIkerSanchez
             else
             {
                 FrmDetallePago frmDetallePago = new FrmDetallePago(idPagoSeleccionado.Value);
+                frmDetallePago.FormClosed += (s, args) => { this.Show(); dgvPagos.DataSource = gestion.ObtenerPagos(); };
                 frmDetallePago.Show();
-                this.Close();
+                this.Hide();
             }
+        }
+
+        private void btnNuevoPago_Click(object sender, EventArgs e)
+        {
+            FrmDetallePago frmDetallePago = new FrmDetallePago(null);
+            frmDetallePago.FormClosed += (s, args) => { this.Show(); dgvPagos.DataSource = gestion.ObtenerPagos(); };
+            frmDetallePago.Show();  
+            this.Hide();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using CapaDatos;
+using CapaDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,8 +62,14 @@ namespace AlojamientosIkerSanchez
             {
                 // Obtener el valor de una celda específica (por nombre de columna o índice)
                 var valor = dgvReservas.Rows[e.RowIndex].Cells["Id"].Value;
-               
-                idReservaSeleccionada = Convert.ToInt32(valor); 
+                if (valor != null && valor != DBNull.Value)
+                {
+                    idReservaSeleccionada = Convert.ToInt32(valor); 
+                }
+                else
+                {
+                    idReservaSeleccionada = null;
+                }
             }
         }
 
@@ -98,9 +104,18 @@ namespace AlojamientosIkerSanchez
             else
             {
                 FrmDetalleReserva frmDetalleReserva = new FrmDetalleReserva(idReservaSeleccionada.Value);
+                frmDetalleReserva.FormClosed += (s, args) => { this.Show(); dgvReservas.DataSource = gestion.ObtenerReservas(); };
                 frmDetalleReserva.Show();
-                this.Close();
+                this.Hide();
             }
+        }
+
+        private void btnNuevaReserva_Click(object sender, EventArgs e)
+        {
+            FrmDetalleReserva frmDetalleReserva = new FrmDetalleReserva(null);
+            frmDetalleReserva.FormClosed += (s, args) => { this.Show(); dgvReservas.DataSource = gestion.ObtenerReservas(); };
+            frmDetalleReserva.Show();
+            this.Hide();
         }
     }
 }

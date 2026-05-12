@@ -31,11 +31,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasBásicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detallesDeReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detallesDePagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.gestiónReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,9 +53,7 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultasBásicasToolStripMenuItem,
             this.gestiónReservasToolStripMenuItem,
-            this.detallesDeReservaToolStripMenuItem,
-            this.gestiónDePagosToolStripMenuItem,
-            this.detallesDePagoToolStripMenuItem});
+            this.gestiónDePagosToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -69,33 +65,12 @@
             this.consultasBásicasToolStripMenuItem.Text = "Consultas Básicas";
             this.consultasBásicasToolStripMenuItem.Click += new System.EventHandler(this.consultasBásicasToolStripMenuItem_Click);
             // 
-            // gestiónReservasToolStripMenuItem
-            // 
-            this.gestiónReservasToolStripMenuItem.Name = "gestiónReservasToolStripMenuItem";
-            this.gestiónReservasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.gestiónReservasToolStripMenuItem.Text = "Gestión de Reservas";
-            this.gestiónReservasToolStripMenuItem.Click += new System.EventHandler(this.gestiónReservasToolStripMenuItem_Click);
-            // 
-            // detallesDeReservaToolStripMenuItem
-            // 
-            this.detallesDeReservaToolStripMenuItem.Name = "detallesDeReservaToolStripMenuItem";
-            this.detallesDeReservaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.detallesDeReservaToolStripMenuItem.Text = "Detalles de Reserva";
-            this.detallesDeReservaToolStripMenuItem.Click += new System.EventHandler(this.detallesDeReservaToolStripMenuItem_Click);
-            // 
             // gestiónDePagosToolStripMenuItem
             // 
             this.gestiónDePagosToolStripMenuItem.Name = "gestiónDePagosToolStripMenuItem";
             this.gestiónDePagosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.gestiónDePagosToolStripMenuItem.Text = "Gestión de Pagos";
             this.gestiónDePagosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDePagosToolStripMenuItem_Click);
-            // 
-            // detallesDePagoToolStripMenuItem
-            // 
-            this.detallesDePagoToolStripMenuItem.Name = "detallesDePagoToolStripMenuItem";
-            this.detallesDePagoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.detallesDePagoToolStripMenuItem.Text = "Detalles de Pago";
-            this.detallesDePagoToolStripMenuItem.Click += new System.EventHandler(this.detallesDePagoToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -106,6 +81,13 @@
             this.button1.Text = "Cerrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // gestiónReservasToolStripMenuItem
+            // 
+            this.gestiónReservasToolStripMenuItem.Name = "gestiónReservasToolStripMenuItem";
+            this.gestiónReservasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gestiónReservasToolStripMenuItem.Text = "Gestión de Reservas";
+            this.gestiónReservasToolStripMenuItem.Click += new System.EventHandler(this.gestiónReservasToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -130,11 +112,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasBásicasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónReservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detallesDeReservaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDePagosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detallesDePagoToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem gestiónReservasToolStripMenuItem;
     }
 }
 

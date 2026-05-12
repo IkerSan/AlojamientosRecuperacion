@@ -57,6 +57,7 @@ namespace AlojamientosIkerSanchez
             this.btnNuevaReserva.TabIndex = 1;
             this.btnNuevaReserva.Text = "Nueva Reserva";
             this.btnNuevaReserva.UseVisualStyleBackColor = true;
+            this.btnNuevaReserva.Click += new System.EventHandler(this.btnNuevaReserva_Click);
             // 
             // btnEditarReserva
             // 

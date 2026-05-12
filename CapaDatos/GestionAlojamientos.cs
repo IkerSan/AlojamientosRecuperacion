@@ -152,9 +152,9 @@ namespace CapaDatos
                                     reader.GetDateTime(5),
                                     reader.GetDateTime(6),
                                     reader.GetInt32(7),
-                                    reader.IsDBNull(8) ? null : reader.GetString(8),       
+                                    reader.IsDBNull(8) ? null : reader.GetString(8),
                                     reader.IsDBNull(9) ? (float?)null : (float)reader.GetDouble(9),
-                                    (float)reader.GetDouble(10)                            
+                                    (float)reader.GetDouble(10)
                                 ));
                             }
                         }
@@ -310,5 +310,62 @@ namespace CapaDatos
             }
         }
 
+        public bool AgregarReserva(int idCliente, int idEstablecimiento, int numeroUnidad, DateTime? fechaCreacion, DateTime fechaEntrada, DateTime fechaSalida, int numeroPersonas, string estado, float? fianza, float importeEstimado)
+        {
+            string consulta = "INSERT INTO RESERVAS (ID_CLIENTE, ID_ESTABLECIMIENTO, NUMERO_UNIDAD, FECHA_CREACION, FECHA_ENTRADA, FECHA_SALIDA, NUMERO_PERSONAS, ESTADO, FIANZA, IMPORTE_ESTIMADO) VALUES (@idCliente, @idEstablecimiento, @numeroUnidad, @fechaCreacion, @fechaEntrada, @fechaSalida, @numeroPersonas, @estado, @fianza, @importeEstimado)";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                        cmd.Parameters.AddWithValue("@idEstablecimiento", idEstablecimiento);
+                        cmd.Parameters.AddWithValue("@numeroUnidad", numeroUnidad);
+                        cmd.Parameters.AddWithValue("@fechaCreacion", (object)fechaCreacion ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@fechaEntrada", fechaEntrada);
+                        cmd.Parameters.AddWithValue("@fechaSalida", fechaSalida);
+                        cmd.Parameters.AddWithValue("@numeroPersonas", numeroPersonas);
+                        cmd.Parameters.AddWithValue("@estado", estado);
+                        cmd.Parameters.AddWithValue("@fianza", (object)fianza ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@importeEstimado", importeEstimado);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
+
+        public bool AgregarPago(int idReserva, float importe, DateTime? fechaPago, string metodoPago)
+        {
+            string consulta = "INSERT INTO PAGOS (ID_RESERVA, IMPORTE, FECHA_PAGO, METODO_PAGO) VALUES (@idReserva, @importe, @fechaPago, @metodoPago)";
+            using (SqlConnection cn = new SqlConnection(conexion))
+            {
+                try
+                {
+                    cn.Open();
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.Parameters.AddWithValue("@idReserva", idReserva);
+                        cmd.Parameters.AddWithValue("@importe", importe);
+                        cmd.Parameters.AddWithValue("@fechaPago", (object)fechaPago ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@metodoPago", metodoPago);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No se ha podido ejecutar la consulta: ", ex);
+                    return false;
+                }
+            }
+        }
     }
 }

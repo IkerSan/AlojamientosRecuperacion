@@ -74,6 +74,7 @@ namespace AlojamientosIkerSanchez
             this.btnNuevaReserva.TabIndex = 8;
             this.btnNuevaReserva.Text = "Nuevo Pago";
             this.btnNuevaReserva.UseVisualStyleBackColor = true;
+            this.btnNuevaReserva.Click += new System.EventHandler(this.btnNuevoPago_Click);
             // 
             // btnEditarPago
             // 
