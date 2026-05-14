@@ -41,6 +41,30 @@ namespace AlojamientosIkerSanchez
         private void FrmDetallePago_Load(object sender, EventArgs e)
         {
             cboMetodopago.DataSource = new List<string> { "Efectivo", "Tarjeta", "Transferencia" };
+
+            // Si es edición, rellenar los campos automáticamente
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                int idPago = int.Parse(lblId.Text);
+                var pago = gestion.ObtenerPagos().FirstOrDefault(p => p.Id == idPago);
+                if (pago != null)
+                {
+                    // Asignar ID de la reserva
+                    txtIdReserva.Text = pago.IdReserva.ToString();
+                    
+                    // Asignar fecha del pago comprobando los límites
+                    if (pago.FechaPago.HasValue && pago.FechaPago.Value >= dtpFechaPago.MinDate)
+                    {
+                        dtpFechaPago.Value = pago.FechaPago.Value;
+                    }
+                    
+                    // Asignar método de pago
+                    cboMetodopago.SelectedItem = pago.MetodoPago;
+                    
+                    // Asignar importe
+                    txtImporte.Text = pago.Importe.ToString();
+                }
+            }
         }
 
         private void btnEditarPago_Click(object sender, EventArgs e)

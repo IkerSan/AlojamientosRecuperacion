@@ -56,7 +56,7 @@ namespace AlojamientosIkerSanchez
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Id de pago:";
+            this.label1.Text = "Buscar (Id/Fecha):";
             // 
             // textBox1
             // 

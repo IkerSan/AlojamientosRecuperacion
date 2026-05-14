@@ -46,8 +46,26 @@ namespace AlojamientosIkerSanchez
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            // Obtener todas las reservas y clientes
             List<Reserva> reservas = gestion.ObtenerReservas();
-            dgvReservas.DataSource = reservas.Where(r => r.Id.ToString().Contains(textBox1.Text)).ToList();
+            List<Clientela> clientes = gestion.ObtenerClientes();
+            
+            // Texto a buscar en minúsculas para ignorar mayúsculas
+            string filtro = textBox1.Text.ToLower();
+
+            // Filtrar por nombre de cliente o número de unidad
+            var reservasFiltradas = reservas.Where(r => 
+            {
+                // Buscar el cliente correspondiente a la reserva
+                var cliente = clientes.FirstOrDefault(c => c.Id == r.IdCliente);
+                string nombreCliente = cliente != null ? cliente.Nombre.ToLower() : "";
+                string numUnidad = r.NumeroUnidad.ToString();
+                
+                // Retornar true si el texto coincide con el nombre o el número de unidad
+                return nombreCliente.Contains(filtro) || numUnidad.Contains(filtro);
+            }).ToList();
+            
+            dgvReservas.DataSource = reservasFiltradas;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

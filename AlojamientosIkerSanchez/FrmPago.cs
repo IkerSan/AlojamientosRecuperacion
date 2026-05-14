@@ -46,7 +46,13 @@ namespace AlojamientosIkerSanchez
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             List<Pago> pagos = gestion.ObtenerPagos();
-            dgvPagos.DataSource = pagos.Where(r => r.Id.ToString().Contains(textBox1.Text)).ToList();
+            string filtro = textBox1.Text.ToLower();
+            
+            // Filtrar por Id de pago o fecha de pago 
+            dgvPagos.DataSource = pagos.Where(p => 
+                p.Id.ToString().Contains(filtro) || 
+                (p.FechaPago.HasValue && p.FechaPago.Value.ToString("dd/MM/yyyy").Contains(filtro))
+            ).ToList();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

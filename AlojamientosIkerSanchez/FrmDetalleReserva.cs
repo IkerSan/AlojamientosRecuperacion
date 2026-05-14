@@ -50,13 +50,42 @@ namespace AlojamientosIkerSanchez
 
             cboCliente.DataSource = gestion.ObtenerClientes();
             cboCliente.DisplayMember = "Nombre";
+            cboCliente.ValueMember = "Id"; // Importante para poder seleccionar por ID
 
             cboEstablecimiento.DataSource = gestion.ObtenerEstablecimientos();
             cboEstablecimiento.DisplayMember = "NombreComercial";
-
-            ActualizarUnidadesAlojamiento();
+            cboEstablecimiento.ValueMember = "Id"; // Importante para poder seleccionar por ID
 
             cboEstado.DataSource = new List<string> { "PENDIENTE", "CONFIRMADA", "CANCELADA", "FINALIZADA" };
+
+            // Cargamos las unidades iniciales
+            ActualizarUnidadesAlojamiento();
+
+            // Si es edición, rellenar los campos automáticamente
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                int idReserva = int.Parse(lblId.Text);
+                var reserva = gestion.ObtenerReservas().FirstOrDefault(r => r.Id == idReserva);
+                if (reserva != null)
+                {
+                    // Seleccionar cliente y establecimiento
+                    cboCliente.SelectedValue = reserva.IdCliente;
+                    cboEstablecimiento.SelectedValue = reserva.IdEstablecimiento;
+
+                    // Seleccionar unidad
+                    cboNumUnidad.SelectedValue = reserva.NumeroUnidad;
+
+                    // Fechas y resto de datos
+                    if (reserva.FechaEntrada >= dtpEntrada.MinDate) dtpEntrada.Value = reserva.FechaEntrada;
+                    if (reserva.FechaSalida >= dtpSalida.MinDate) dtpSalida.Value = reserva.FechaSalida;
+                    
+                    txtInquilinos.Text = reserva.NumeroPersonas.ToString();
+                    txtFianza.Text = reserva.Fianza?.ToString() ?? "";
+                    
+                    cboEstado.SelectedItem = reserva.Estado;
+                    lblImporte.Text = reserva.ImporteEstimado.ToString();
+                }
+            }
         }
 
         private void cboEstablecimiento_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,11 +97,23 @@ namespace AlojamientosIkerSanchez
         {
             if (cboEstablecimiento.SelectedItem is Establecimiento establecimientoSeleccionado)
             {
+                int numUnidadReserva = -1;
+                // Si estamos editando, obtener el numero de unidad original para mostrarla aunque esté OCUPADA
+                if (!string.IsNullOrEmpty(lblId.Text)) 
+                {
+                    int idReserva = int.Parse(lblId.Text);
+                    var reserva = gestion.ObtenerReservas().FirstOrDefault(r => r.Id == idReserva);
+                    if (reserva != null) numUnidadReserva = reserva.NumeroUnidad;
+                }
+
                 var unidades = gestion.ObtenerUnidadesAlojamiento()
-                                      .Where(u => u.IdEstablecimiento == establecimientoSeleccionado.Id && u.Estado == "DISPONIBLE")
+                                      .Where(u => u.IdEstablecimiento == establecimientoSeleccionado.Id && 
+                                                  (u.Estado == "DISPONIBLE" || u.NumeroUnidad == numUnidadReserva))
                                       .ToList();
+                
                 cboNumUnidad.DataSource = unidades;
                 cboNumUnidad.DisplayMember = "NombreUnidad";
+                cboNumUnidad.ValueMember = "NumeroUnidad"; // Para poder seleccionarla por código
             }
             else
             {
@@ -106,6 +147,11 @@ namespace AlojamientosIkerSanchez
             if (dtpSalida.Value == null || dtpSalida.Value < DateTime.Today)
             {
                 MessageBox.Show("Por favor, seleccione una fecha de salida válida");
+                return;
+            }
+            if (dtpSalida.Value <= dtpEntrada.Value)
+            {
+                MessageBox.Show("La fecha de salida debe ser posterior a la fecha de entrada");
                 return;
             }
             int inquilinos;

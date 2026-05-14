@@ -81,7 +81,7 @@ namespace AlojamientosIkerSanchez
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(205, 51);
+            this.textBox1.Location = new System.Drawing.Point(268, 51);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 4;
@@ -92,9 +92,9 @@ namespace AlojamientosIkerSanchez
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(110, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.Size = new System.Drawing.Size(152, 16);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Id de reserva:";
+            this.label1.Text = "Buscar (Cliente/Unidad):";
             // 
             // btnVolver
             // 
