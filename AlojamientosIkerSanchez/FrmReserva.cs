@@ -135,5 +135,22 @@ namespace AlojamientosIkerSanchez
             frmDetalleReserva.Show();
             this.Hide();
         }
+
+        private void btnAnadirPago_Click(object sender, EventArgs e)
+        {
+            if (idReservaSeleccionada == null)
+            {
+                MessageBox.Show("Selecciona una reserva a la que añadir un pago (la fila completa)");
+                return;
+            }
+            else
+            {
+                // Usamos FrmDetallePago pasándole null como idPago (es uno nuevo) y el id de la reserva seleccionada
+                FrmDetallePago frmDetallePago = new FrmDetallePago(null, idReservaSeleccionada.Value);
+                frmDetallePago.FormClosed += (s, args) => { this.Show(); };
+                frmDetallePago.Show();
+                this.Hide();
+            }
+        }
     }
 }

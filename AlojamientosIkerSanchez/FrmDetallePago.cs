@@ -92,14 +92,6 @@ namespace AlojamientosIkerSanchez
 
             if (lblId.Text == "" || lblId.Text == null)
             {
-                // Comprobar que la reserva no tenga ya un pago (Máximo 1 pago por reserva)
-                var pagosExistentes = gestion.ObtenerPagos().Where(p => p.IdReserva == Convert.ToInt32(txtIdReserva.Text)).ToList();
-                if (pagosExistentes.Count > 0)
-                {
-                    MessageBox.Show("Esta reserva ya tiene un pago registrado. Solo se permite un máximo de 1 pago por reserva.");
-                    return;
-                }
-
                 // Si no hay ID, crear nuevo pago
                 gestion.AgregarPago(
                     idReserva: Convert.ToInt32(txtIdReserva.Text),
@@ -114,14 +106,6 @@ namespace AlojamientosIkerSanchez
             {
                 int pagoActualId = Convert.ToInt32(lblId.Text);
                 int nuevaReservaId = Convert.ToInt32(txtIdReserva.Text);
-
-                // Comprobar que si ha cambiado de reserva, la nueva reserva no tenga ya otro pago distinto a este
-                var pagosExistentes = gestion.ObtenerPagos().Where(p => p.IdReserva == nuevaReservaId && p.Id != pagoActualId).ToList();
-                if (pagosExistentes.Count > 0)
-                {
-                    MessageBox.Show("La reserva especificada ya tiene otro pago registrado. Solo se permite un máximo de 1 pago por reserva.");
-                    return;
-                }
 
                 // Si hay ID, editar pago existente
                 gestion.EditarPago(

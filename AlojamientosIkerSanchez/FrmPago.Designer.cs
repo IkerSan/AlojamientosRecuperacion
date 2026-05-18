@@ -54,13 +54,13 @@ namespace AlojamientosIkerSanchez
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(117, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(116, 16);
             this.label1.TabIndex = 6;
             this.label1.Text = "Buscar (Id/Fecha):";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(212, 62);
+            this.textBox1.Location = new System.Drawing.Point(239, 62);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 7;
